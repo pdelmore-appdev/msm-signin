@@ -44,7 +44,7 @@
         Image
       </dt>
       <dd>
-        <%= @the_director.image %>
+        <img src="<%= @the_director.image %>">
       </dd>
 
       <dt>
@@ -65,7 +65,51 @@
 </div>
 
 <hr>
+<h1>Filmography</h1>
 
+<table border="1">
+<tbody>
+<tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+<%  %>
+<% @the_director.filmography.each do |a_movie| %>
+  <tr>
+<td><%= a_movie.id %></td>
+<td><img src="<%=a_movie.image%>"></td>
+<td><%=a_movie.title%></td>
+<td><%=a_movie.year%></td>
+<td><%=a_movie.director.name%></td>
+<td><a href="/movies/<%= a_movie.id %>">Show details</a></td>
+<% end %>
+  </tr>
+
+</tbody>
+</table>
+
+<hr>
 
 <div>
   <div>
