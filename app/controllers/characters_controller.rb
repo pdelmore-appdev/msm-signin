@@ -23,6 +23,8 @@ class CharactersController < ApplicationController
     the_character.actor_id = params.fetch("query_actor_id")
     the_character.movie_id = params.fetch("query_movie_id")
 
+    the_character.movie.title = params.fetch("query_movie_title")
+
     if the_character.valid?
       the_character.save
       redirect_to("/characters", { :notice => "Character created successfully." })

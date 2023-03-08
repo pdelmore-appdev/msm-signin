@@ -121,6 +121,51 @@
 </tbody></table>
 
 
+<div>
+
+    <h2>
+      Add to Filmography
+    </h2>
+
+    <form action="/insert_character/"  method="post" >
+      <div>
+        <label for="movie_title">
+          Movie
+        </label>
+
+        <input type="text" id="movie_title" name="query_movie_title">
+
+        <input type="hidden" id="movie_id" name="query_movie_id" value="<%=@the_actor.filmography.first.id%>">
+      </div>
+
+      <div>
+        <label for="actor">
+          Actor ID
+        </label>
+
+        <input type="text" id="actor" name="query_actor_id" value="<%= @the_actor.id %>">
+      </div>
+
+            <div>
+        <label for="actor">
+          Character name
+        </label>
+
+        <input type="text" id="character" name="query_name">
+      </div>
+
+
+
+      <button>
+        Add character
+      </button>
+    </form>
+
+
+</div>
+
+
+
 
 <hr>
 
