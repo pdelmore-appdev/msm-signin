@@ -56,13 +56,6 @@
       </dd>
 
       <dt>
-        Director
-      </dt>
-      <dd>
-        <%= @the_movie.director_id %>
-      </dd>
-
-      <dt>
         Description
       </dt>
       <dd>
@@ -73,22 +66,25 @@
         Image
       </dt>
       <dd>
-        <%= @the_movie.image %>
+        <img src="<%= @the_movie.image %>">
       </dd>
 
       <dt>
-        Created at
+        Director
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_movie.created_at) %> ago
+        <%= @the_movie.director.name %>
       </dd>
 
       <dt>
-        Updated at
+        Cast
       </dt>
+      <% character_list = @the_movie.cast %>
+      <% character_list.each do |cast|  %>
       <dd>
-        <%= time_ago_in_words(@the_movie.updated_at) %> ago
+      <%= cast.name %>
       </dd>
+<% end %>
     </dl>
   </div>
 </div>
