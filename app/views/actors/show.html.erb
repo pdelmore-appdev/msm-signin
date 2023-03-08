@@ -4,6 +4,7 @@
       Actor #<%= @the_actor.id %> details
     </h1>
 
+<hr>
     <div>
       <div>
         <a href="/actors">
@@ -17,6 +18,7 @@
         </a>
       </div>
     </div>
+    <hr>
 
     <dl>
       <dt>
@@ -44,7 +46,7 @@
         Image
       </dt>
       <dd>
-        <%= @the_actor.image %>
+        <img src="<%= @the_actor.image %>">
       </dd>
 
       <dt>
@@ -66,6 +68,61 @@
 
 <hr>
 
+<h2>Filmography</h2>
+
+<table border="1">
+  <tbody><tr>
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+      Character name
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+    <tr>
+      <% @the_actor.filmography.each do |a_movie| %>
+      <td>
+        <%= a_movie.title %>
+      </td>
+
+      <td>
+        <%= a_movie.year %>
+      </td>
+
+      <td>
+        <%= a_movie.director.name %>
+      </td>
+
+      <td>
+      <%= a_movie.characters.where({ :actor_id => @the_actor.id}).first.name %>
+      </td>
+
+      <td>
+        <a href="/movies/<%= a_movie.id %>">
+          Show details
+        </a>
+      </td>
+
+    </tr>
+      <% end %>
+</tbody></table>
+
+
+
+<hr>
 
 <div>
   <div>
