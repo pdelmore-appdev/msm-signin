@@ -47,7 +47,7 @@ class UserAuthenticationController < ApplicationController
     save_status = @user.save
 
     if save_status == true
-      session[:user_id] = @user.id
+      @user.id = session[:user_id]
    
       redirect_to("/", { :notice => "User account created successfully."})
     else
